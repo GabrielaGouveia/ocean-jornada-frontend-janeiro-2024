@@ -3,6 +3,8 @@ import Card from './components/Card/Card'
 
 function App() {
 
+  //Carregamento de dados via codigo
+
   const item1= {
     name: 'Rick Sanchez',
     image:'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
@@ -23,15 +25,51 @@ function App() {
     image:'https://rickandmortyapi.com/api/character/avatar/4.jpeg'
   }
 
-  const itens =[item1,item2,item3,item4]
+  const item5= {
+    name: 'Jerry Smith',
+    image:'https://rickandmortyapi.com/api/character/avatar/5.jpeg'
+  }
+
+
+  const item6= {
+    name: 'Squanchy',
+    image:'https://rickandmortyapi.com/api/character/avatar/6.jpeg'
+  }
+
+
+  const itens =[item1,item2,item3,item4,item5, item6]
+
+  
+
+
+  // Carregamento de dados via API
+  async function carregarDadosApi(){
+    const apiUrl = 'https://rickandmortyapi.com/api/character/'
+
+    //Preparar a requisição
+   const response = await fetch (apiUrl)
+
+   //console.log(response)
+
+    const body =  await response.json()
+
+    console.log(body)
+
+    //Extraindo propriedades results do body
+
+    const results=body.results
+
+   
+  }
+
+  carregarDadosApi()
+
+  
 
   return (
     <>
      <div className='cards'>
-      {/* <Card  item= {item1} />
-      <Card  item= {item2} />
-      <Card  item= {item3} /> */}
-      {itens.map(item=> <Card item={item}/>)}
+      {itens.map((item,i) => <Card item={item} key={i}/>)}
       </div>
     </>
   )
