@@ -1,45 +1,36 @@
+import { useState } from 'react'
 import './App.css'
 import Card from './components/Card/Card'
 
 function App() {
+  const [itens, setItens] = useState([])
 
-  //Carregamento de dados via codigo
+  // //Carregamento de dados via codigo
 
-  const item1= {
-    name: 'Rick Sanchez',
-    image:'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
-  }
+  // const item1= {
+  //   name: 'Rick Sanchez',
+  //   image:'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
+  // }
 
-  const item2= {
-    name: 'Morty Smith',
-    image:'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
-  }
+  // const item2= {
+  //   name: 'Morty Smith',
+  //   image:'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
+  // }
 
-  const item3= {
-    name: 'Summer Smith',
-    image:'https://rickandmortyapi.com/api/character/avatar/3.jpeg'
-  }
+  // const item3= {
+  //   name: 'Summer Smith',
+  //   image:'https://rickandmortyapi.com/api/character/avatar/3.jpeg'
+  // }
 
-  const item4= {
-    name: 'Beth Smith',
-    image:'https://rickandmortyapi.com/api/character/avatar/4.jpeg'
-  }
-
-  const item5= {
-    name: 'Jerry Smith',
-    image:'https://rickandmortyapi.com/api/character/avatar/5.jpeg'
-  }
-
-
-  const item6= {
-    name: 'Squanchy',
-    image:'https://rickandmortyapi.com/api/character/avatar/6.jpeg'
-  }
-
-
-  const itens =[item1,item2,item3,item4,item5, item6]
+  // const item4= {
+  //   name: 'Beth Smith',
+  //   image:'https://rickandmortyapi.com/api/character/avatar/4.jpeg'
+  // }
 
   
+  //const itens =[item1,item2,item3,item4]
+
+ 
 
 
   // Carregamento de dados via API
@@ -51,13 +42,20 @@ function App() {
 
    //console.log(response)
 
+
+
     const body =  await response.json()
 
-    console.log(body)
+    //console.log(body)
 
     //Extraindo propriedades results do body
 
     const results=body.results
+
+    console.log(results)
+
+
+    setItens(results)
 
    
   }
