@@ -3,7 +3,7 @@ import './App.css'
 import Card from './components/Card/Card'
 
 function App() {
-  const [itens, setItens] = useState([])
+  
 
   // //Carregamento de dados via codigo
 
@@ -26,7 +26,7 @@ function App() {
   //   name: 'Beth Smith',
   //   image:'https://rickandmortyapi.com/api/character/avatar/4.jpeg'
   // }
-
+  const [itens, setItens] = useState([])
   
   //const itens =[item1,item2,item3,item4]
 
